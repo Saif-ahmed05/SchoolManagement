@@ -30,10 +30,12 @@
         {
             lblexamname = new Label();
             txtexamname = new TextBox();
-            lblsubject = new Label();
-            cmbsubject = new ComboBox();
+            lblcourse = new Label();
+            cmbcourse = new ComboBox();
             btnadd = new Button();
             dataGridView1 = new DataGridView();
+            btnedit = new Button();
+            btndelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -54,32 +56,33 @@
             txtexamname.TabIndex = 1;
             txtexamname.TextChanged += txtexamname_TextChanged;
             // 
-            // lblsubject
+            // lblcourse
             // 
-            lblsubject.AutoSize = true;
-            lblsubject.Location = new Point(137, 71);
-            lblsubject.Name = "lblsubject";
-            lblsubject.Size = new Size(46, 15);
-            lblsubject.TabIndex = 2;
-            lblsubject.Text = "Subject";
+            lblcourse.AutoSize = true;
+            lblcourse.Location = new Point(137, 71);
+            lblcourse.Name = "lblcourse";
+            lblcourse.Size = new Size(44, 15);
+            lblcourse.TabIndex = 2;
+            lblcourse.Text = "Course";
             // 
-            // cmbsubject
+            // cmbcourse
             // 
-            cmbsubject.FormattingEnabled = true;
-            cmbsubject.Location = new Point(221, 67);
-            cmbsubject.Name = "cmbsubject";
-            cmbsubject.Size = new Size(259, 23);
-            cmbsubject.TabIndex = 3;
-            cmbsubject.SelectedIndexChanged += cmbsubject_SelectedIndexChanged;
+            cmbcourse.FormattingEnabled = true;
+            cmbcourse.Location = new Point(221, 67);
+            cmbcourse.Name = "cmbcourse";
+            cmbcourse.Size = new Size(259, 23);
+            cmbcourse.TabIndex = 3;
+            cmbcourse.SelectedIndexChanged += cmbsubject_SelectedIndexChanged;
             // 
             // btnadd
             // 
-            btnadd.Location = new Point(290, 129);
+            btnadd.Location = new Point(121, 134);
             btnadd.Name = "btnadd";
             btnadd.Size = new Size(75, 23);
             btnadd.TabIndex = 4;
             btnadd.Text = "Add";
             btnadd.UseVisualStyleBackColor = true;
+            btnadd.Click += btnadd_Click;
             // 
             // dataGridView1
             // 
@@ -88,20 +91,44 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(462, 200);
             dataGridView1.TabIndex = 5;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // btnedit
+            // 
+            btnedit.Location = new Point(259, 134);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(75, 23);
+            btnedit.TabIndex = 6;
+            btnedit.Text = "Edit";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
+            // 
+            // btndelete
+            // 
+            btndelete.Location = new Point(405, 134);
+            btndelete.Name = "btndelete";
+            btndelete.Size = new Size(75, 23);
+            btndelete.TabIndex = 7;
+            btndelete.Text = "delete";
+            btndelete.UseVisualStyleBackColor = true;
+            btndelete.Click += btndelete_Click;
             // 
             // Exam
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btndelete);
+            Controls.Add(btnedit);
             Controls.Add(dataGridView1);
             Controls.Add(btnadd);
-            Controls.Add(cmbsubject);
-            Controls.Add(lblsubject);
+            Controls.Add(cmbcourse);
+            Controls.Add(lblcourse);
             Controls.Add(txtexamname);
             Controls.Add(lblexamname);
             Name = "Exam";
             Text = "Exam";
+            Load += Exam_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -115,5 +142,9 @@
         private ComboBox cmbsubject;
         private Button btnadd;
         private DataGridView dataGridView1;
+        private Button btnedit;
+        private Button btndelete;
+        private Label lblcourse;
+        private ComboBox cmbcourse;
     }
 }

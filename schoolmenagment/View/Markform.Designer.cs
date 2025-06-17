@@ -28,34 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblstudent = new Label();
-            cmbstudent = new ComboBox();
+            components = new System.ComponentModel.Container();
+            lblstudentid = new Label();
             lblexam = new Label();
             cmbexam = new ComboBox();
             lblscore = new Label();
             txtscore = new TextBox();
             btnadd = new Button();
             dataGridView1 = new DataGridView();
+            txtstudentid = new TextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            btnedit = new Button();
+            btndelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // lblstudent
+            // lblstudentid
             // 
-            lblstudent.AutoSize = true;
-            lblstudent.Location = new Point(202, 24);
-            lblstudent.Name = "lblstudent";
-            lblstudent.Size = new Size(48, 15);
-            lblstudent.TabIndex = 0;
-            lblstudent.Text = "Student";
-            lblstudent.Click += label1_Click;
-            // 
-            // cmbstudent
-            // 
-            cmbstudent.FormattingEnabled = true;
-            cmbstudent.Location = new Point(274, 16);
-            cmbstudent.Name = "cmbstudent";
-            cmbstudent.Size = new Size(121, 23);
-            cmbstudent.TabIndex = 1;
+            lblstudentid.AutoSize = true;
+            lblstudentid.Location = new Point(202, 24);
+            lblstudentid.Name = "lblstudentid";
+            lblstudentid.Size = new Size(61, 15);
+            lblstudentid.TabIndex = 0;
+            lblstudentid.Text = "Student Id";
+            lblstudentid.Click += label1_Click;
             // 
             // lblexam
             // 
@@ -92,12 +88,13 @@
             // 
             // btnadd
             // 
-            btnadd.Location = new Point(295, 143);
+            btnadd.Location = new Point(163, 149);
             btnadd.Name = "btnadd";
             btnadd.Size = new Size(75, 23);
             btnadd.TabIndex = 6;
             btnadd.Text = "Add";
             btnadd.UseVisualStyleBackColor = true;
+            btnadd.Click += btnadd_Click;
             // 
             // dataGridView1
             // 
@@ -106,22 +103,58 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(365, 187);
             dataGridView1.TabIndex = 7;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // txtstudentid
+            // 
+            txtstudentid.Location = new Point(274, 21);
+            txtstudentid.Name = "txtstudentid";
+            txtstudentid.Size = new Size(121, 23);
+            txtstudentid.TabIndex = 8;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // btnedit
+            // 
+            btnedit.Location = new Point(285, 152);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(75, 23);
+            btnedit.TabIndex = 10;
+            btnedit.Text = "Edit";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
+            // 
+            // btndelete
+            // 
+            btndelete.Location = new Point(399, 152);
+            btndelete.Name = "btndelete";
+            btndelete.Size = new Size(75, 23);
+            btndelete.TabIndex = 11;
+            btndelete.Text = "Delete";
+            btndelete.UseVisualStyleBackColor = true;
+            btndelete.Click += btndelete_Click;
             // 
             // Markform
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btndelete);
+            Controls.Add(btnedit);
+            Controls.Add(txtstudentid);
             Controls.Add(dataGridView1);
             Controls.Add(btnadd);
             Controls.Add(txtscore);
             Controls.Add(lblscore);
             Controls.Add(cmbexam);
             Controls.Add(lblexam);
-            Controls.Add(cmbstudent);
-            Controls.Add(lblstudent);
+            Controls.Add(lblstudentid);
             Name = "Markform";
             Text = "Markform";
+            Load += Markform_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -129,13 +162,16 @@
 
         #endregion
 
-        private Label lblstudent;
-        private ComboBox cmbstudent;
+        private Label lblstudentid;
         private Label lblexam;
         private ComboBox cmbexam;
         private Label lblscore;
         private TextBox txtscore;
         private Button btnadd;
         private DataGridView dataGridView1;
+        private TextBox txtstudentid;
+        private ContextMenuStrip contextMenuStrip1;
+        private Button btnedit;
+        private Button btndelete;
     }
 }

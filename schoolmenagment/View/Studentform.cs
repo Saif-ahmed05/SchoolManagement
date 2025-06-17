@@ -4,110 +4,78 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
-namespace schoolmenagment
+namespace schoolmenagment.View
 {
     public partial class Studentform : Form
     {
-        private Studentcontroller controller;
+        private Studentcontroller controller = new Studentcontroller();
         private int selectedStudentId = -1;
+
         public Studentform()
         {
             InitializeComponent();
-            InitializeComponent();
-            controller = new Studentcontroller();
+            LoadGenderOptions();
+            LoadStudents();
+        }
+        private void LoadGenderOptions()
+        {
+            cmbgender.Items.Clear();
+            cmbgender.Items.Add("Male");
+            cmbgender.Items.Add("Female");
+            cmbgender.Items.Add("Other");
+            cmbgender.SelectedIndex = 0;
+        }
+        private void LoadStudents()
+        {
+            dgvstudent.DataSource = controller.GetAllStudents();
+        }
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            Student student = new Student
+            {
+                Name = txtstudentname.Text,
+                Address = txtaddress.Text,
+                Age = int.TryParse(txtage.Text, out int age) ? age : 0,
+                Gender = cmbgender.SelectedItem.ToString()
+            };
+
+            controller.AddStudent(student);
+            MessageBox.Show("Student added successfully!");
+            ClearForm();
             LoadStudents();
         }
 
-        private void btnaddstudent_Click(object sender, EventArgs e)
+        private void btnedit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(lblstudent.Text) || string.IsNullOrWhiteSpace(lbladdress.Text))
+            if (selectedStudentId == -1)
             {
-                MessageBox.Show("Please enter both Name and Address.");
+                MessageBox.Show("Please select a student to edit.");
                 return;
             }
 
             Student student = new Student
             {
-                Name = lblstudent.Text,
-                Address = lbladdress.Text
+                StudentId = selectedStudentId,
+                Name = txtstudentname.Text,
+                Address = txtaddress.Text,
+                Age = int.TryParse(txtage.Text, out int age) ? age : 0,
+                Gender = cmbgender.SelectedItem.ToString()
             };
 
-            controller.AddStudent(student);
-            MessageBox.Show("Student Added Successfully");
+            controller.UpdateStudent(student);
+            MessageBox.Show("Student updated successfully!");
+            ClearForm();
             LoadStudents();
         }
 
-        private void dgvstudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                var row = dgvstudents.Rows[e.RowIndex];
-
-                selectedStudentId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtname.Text = row.Cells["Name"].Value.ToString();
-                txtage.Text = row.Cells["Age"].Value.ToString();
-                cmbgender.Text = row.Cells["Gender"].Value.ToString();
-                cmbcoures.SelectedValue = row.Cells["CourseId"].Value;
-            }
-        }
-
-        private void cmbcoures_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void Studentform_Load(object sender, EventArgs e)
-        {
-
-            LoadCourses();
-            LoadStudents();
-        }
-
-        private void LoadStudents()
-        {
-            List<Student> students = controller.GetAllStudents();
-            dgvstudents.DataSource = students;
-            dgvstudents.ClearSelection();
-            ClearInputs();
-            selectedStudentId = -1;
-        }
-        private void ClearInputs()
-        {
-            lblstudent.Text = "";
-            lbladdress.Text = "";
-        }
-        private void LoadCourses()
-        {
-            
-            
-            var courses = Coursecontroller.GetAllCourses();
-            cmbcoures.DataSource = courses;
-            cmbcoures.DisplayMember = "CourseId";
-            cmbcoures.ValueMember = "CourseName";
-            
-
-        }
-        private void ClearForm()
-        {
-            txtname.Text = "";
-            txtage.Text = "";
-            cmbgender.SelectedIndex = -1;
-            cmbcoures.SelectedIndex = -1;
-            selectedStudentId = -1;
-        }
-
-
-        private void btndeletestudent_Click(object sender, EventArgs e)
+        private void btndelete_Click(object sender, EventArgs e)
         {
             if (selectedStudentId == -1)
             {
@@ -115,41 +83,52 @@ namespace schoolmenagment
                 return;
             }
 
-            var confirmResult = MessageBox.Show("Are you sure to delete this student?", "Confirm Delete", MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            // ✅ Show Yes/No confirmation dialog
+            var result = MessageBox.Show(
+                "Are you sure you want to delete this student?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
                 controller.DeleteStudent(selectedStudentId);
-                MessageBox.Show("Student Deleted Successfully");
+                MessageBox.Show("Student deleted successfully!");
+                ClearForm();
                 LoadStudents();
+            }
+            else
+            {
+                // Optional: do nothing or show message
+                MessageBox.Show("Delete cancelled.");
             }
         }
 
-        private void btneditstudent_Click(object sender, EventArgs e)
+        private void dgvstudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (selectedStudentId == -1)
+            if (e.RowIndex >= 0)
             {
-                MessageBox.Show("Please select a student to update.");
-                return;
+                DataGridViewRow row = dgvstudent.Rows[e.RowIndex];
+
+                if (row.Cells[0].Value != null)
+                {
+                    selectedStudentId = Convert.ToInt32(row.Cells[0].Value); // Column 0 = StudentID
+                    txtstudentname.Text = row.Cells[1].Value.ToString(); // Name
+                    txtage.Text = row.Cells[2].Value.ToString(); // Age
+                    txtaddress.Text = row.Cells[3].Value.ToString(); // Address (if needed)
+                    cmbgender.SelectedItem = row.Cells[4].Value.ToString(); // Gender
+                    MessageBox.Show("Selected Student ID = " + selectedStudentId); // ✅ debug
+                }
             }
 
-            if (string.IsNullOrWhiteSpace(lblstudent.Text) || string.IsNullOrWhiteSpace(lbladdress.Text))
-            {
-                MessageBox.Show("Please enter both Name and Address.");
-                return;
-            }
-
-            Student student = new Student
-            {
-                Id = selectedStudentId,
-                Name = lblstudent.Text,
-                Address = lbladdress.Text
-            };
-
-            controller.UpdateStudent(student);
-            MessageBox.Show("Student Updated Successfully");
-            LoadStudents();
+        }
+        private void ClearForm()
+        {
+            txtstudentname.Clear();
+            txtaddress.Clear();
+            txtage.Clear();
+            cmbgender.SelectedIndex = 0;
+            selectedStudentId = -1;
         }
     }
 }
-
-

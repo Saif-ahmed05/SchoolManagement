@@ -9,7 +9,7 @@ namespace schoolmenagment.models
     internal class Timtable
     {
         public int TimtableId { get; set; }
-        public int SubjectID { get;set; }
+        public int CourseId { get; set; }
         public string Timeslot { get; set; }
         public int Roomid { get; set; }
     }

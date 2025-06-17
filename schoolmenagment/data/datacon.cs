@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace schoolmenagment.data
 {
-    internal class datacon
+    internal static class datacon
     {
-        private static string ConnectionString = "Data Source=School.DB.db;version=3;";
+     
+        private static string ConnectionString = "Data Source=SchoolDB.db; version=3;";
 
         public static SQLiteConnection GetConnection()
         {

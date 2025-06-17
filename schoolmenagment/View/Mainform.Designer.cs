@@ -98,6 +98,7 @@
             btnexams.TabIndex = 2;
             btnexams.Text = "Exams";
             btnexams.UseVisualStyleBackColor = true;
+            btnexams.Click += btnexams_Click;
             // 
             // btnstudents
             // 
@@ -128,6 +129,7 @@
             Controls.Add(lblwelcom);
             Name = "Mainform";
             Text = "Form1";
+            Load += Mainform_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

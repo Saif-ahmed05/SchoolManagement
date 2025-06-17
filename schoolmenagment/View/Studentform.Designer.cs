@@ -1,4 +1,4 @@
-﻿namespace schoolmenagment
+﻿namespace schoolmenagment.View
 {
     partial class Studentform
     {
@@ -28,144 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblstudent = new Label();
-            txtname = new TextBox();
-            lblcoures = new Label();
-            cmbcoures = new ComboBox();
-            btnaddstudent = new Button();
-            btneditstudent = new Button();
-            btndeletestudent = new Button();
-            dgvstudents = new DataGridView();
-            lbladdress = new Label();
+            lblStudentname = new Label();
+            txtstudentname = new TextBox();
+            lbladress = new Label();
             txtaddress = new TextBox();
-            lblage = new Label();
             txtage = new TextBox();
-            lblgennder = new Label();
+            lblage = new Label();
+            btnadd = new Button();
+            btnedit = new Button();
+            btndelete = new Button();
+            dgvstudent = new DataGridView();
+            lblgender = new Label();
             cmbgender = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dgvstudents).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvstudent).BeginInit();
             SuspendLayout();
             // 
-            // lblstudent
+            // lblStudentname
             // 
-            lblstudent.AutoSize = true;
-            lblstudent.Location = new Point(69, 38);
-            lblstudent.Name = "lblstudent";
-            lblstudent.Size = new Size(83, 15);
-            lblstudent.TabIndex = 0;
-            lblstudent.Text = "Student Name";
+            lblStudentname.AutoSize = true;
+            lblStudentname.Location = new Point(156, 31);
+            lblStudentname.Name = "lblStudentname";
+            lblStudentname.Size = new Size(83, 15);
+            lblStudentname.TabIndex = 0;
+            lblStudentname.Text = "Student Name";
             // 
-            // txtname
+            // txtstudentname
             // 
-            txtname.Location = new Point(195, 35);
-            txtname.Name = "txtname";
-            txtname.Size = new Size(316, 23);
-            txtname.TabIndex = 1;
+            txtstudentname.Location = new Point(287, 28);
+            txtstudentname.Name = "txtstudentname";
+            txtstudentname.Size = new Size(169, 23);
+            txtstudentname.TabIndex = 1;
             // 
-            // lblcoures
+            // lbladress
             // 
-            lblcoures.AutoSize = true;
-            lblcoures.Location = new Point(85, 164);
-            lblcoures.Name = "lblcoures";
-            lblcoures.Size = new Size(44, 15);
-            lblcoures.TabIndex = 2;
-            lblcoures.Text = "Coures";
-            // 
-            // cmbcoures
-            // 
-            cmbcoures.FormattingEnabled = true;
-            cmbcoures.Location = new Point(195, 164);
-            cmbcoures.Name = "cmbcoures";
-            cmbcoures.Size = new Size(121, 23);
-            cmbcoures.TabIndex = 3;
-            cmbcoures.SelectedIndexChanged += cmbcoures_SelectedIndexChanged;
-            // 
-            // btnaddstudent
-            // 
-            btnaddstudent.Location = new Point(710, 225);
-            btnaddstudent.Name = "btnaddstudent";
-            btnaddstudent.Size = new Size(75, 23);
-            btnaddstudent.TabIndex = 4;
-            btnaddstudent.Text = "Add";
-            btnaddstudent.UseVisualStyleBackColor = true;
-            btnaddstudent.Click += btnaddstudent_Click;
-            // 
-            // btneditstudent
-            // 
-            btneditstudent.Location = new Point(713, 309);
-            btneditstudent.Name = "btneditstudent";
-            btneditstudent.Size = new Size(75, 23);
-            btneditstudent.TabIndex = 5;
-            btneditstudent.Text = "Edit";
-            btneditstudent.UseVisualStyleBackColor = true;
-            btneditstudent.Click += btneditstudent_Click;
-            // 
-            // btndeletestudent
-            // 
-            btndeletestudent.Location = new Point(713, 388);
-            btndeletestudent.Name = "btndeletestudent";
-            btndeletestudent.Size = new Size(75, 23);
-            btndeletestudent.TabIndex = 6;
-            btndeletestudent.Text = "Delete";
-            btndeletestudent.UseVisualStyleBackColor = true;
-            btndeletestudent.Click += btndeletestudent_Click;
-            // 
-            // dgvstudents
-            // 
-            dgvstudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvstudents.Location = new Point(328, 225);
-            dgvstudents.Name = "dgvstudents";
-            dgvstudents.Size = new Size(376, 204);
-            dgvstudents.TabIndex = 7;
-            dgvstudents.CellContentClick += dgvstudents_CellContentClick;
-            // 
-            // lbladdress
-            // 
-            lbladdress.AutoSize = true;
-            lbladdress.Location = new Point(80, 79);
-            lbladdress.Name = "lbladdress";
-            lbladdress.Size = new Size(49, 15);
-            lbladdress.TabIndex = 8;
-            lbladdress.Text = "Address";
+            lbladress.AutoSize = true;
+            lbladress.Location = new Point(175, 79);
+            lbladress.Name = "lbladress";
+            lbladress.Size = new Size(49, 15);
+            lbladress.TabIndex = 2;
+            lbladress.Text = "Address";
             // 
             // txtaddress
             // 
-            txtaddress.Location = new Point(195, 76);
+            txtaddress.Location = new Point(287, 76);
             txtaddress.Name = "txtaddress";
-            txtaddress.Size = new Size(316, 23);
-            txtaddress.TabIndex = 9;
+            txtaddress.Size = new Size(169, 23);
+            txtaddress.TabIndex = 3;
+            // 
+            // txtage
+            // 
+            txtage.Location = new Point(287, 123);
+            txtage.Name = "txtage";
+            txtage.Size = new Size(169, 23);
+            txtage.TabIndex = 4;
             // 
             // lblage
             // 
             lblage.AutoSize = true;
-            lblage.Location = new Point(91, 116);
+            lblage.Location = new Point(186, 131);
             lblage.Name = "lblage";
             lblage.Size = new Size(28, 15);
-            lblage.TabIndex = 10;
+            lblage.TabIndex = 5;
             lblage.Text = "Age";
             // 
-            // txtage
+            // btnadd
             // 
-            txtage.Location = new Point(195, 116);
-            txtage.Name = "txtage";
-            txtage.Size = new Size(326, 23);
-            txtage.TabIndex = 11;
+            btnadd.Location = new Point(164, 213);
+            btnadd.Name = "btnadd";
+            btnadd.Size = new Size(75, 23);
+            btnadd.TabIndex = 6;
+            btnadd.Text = "ADD";
+            btnadd.UseVisualStyleBackColor = true;
+            btnadd.Click += btnadd_Click;
             // 
-            // lblgennder
+            // btnedit
             // 
-            lblgennder.AutoSize = true;
-            lblgennder.Location = new Point(91, 206);
-            lblgennder.Name = "lblgennder";
-            lblgennder.Size = new Size(45, 15);
-            lblgennder.TabIndex = 12;
-            lblgennder.Text = "Gender";
+            btnedit.Location = new Point(301, 213);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(75, 23);
+            btnedit.TabIndex = 7;
+            btnedit.Text = "Edit";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
+            // 
+            // btndelete
+            // 
+            btndelete.Location = new Point(439, 213);
+            btndelete.Name = "btndelete";
+            btndelete.Size = new Size(75, 23);
+            btndelete.TabIndex = 8;
+            btndelete.Text = "Delete";
+            btndelete.UseVisualStyleBackColor = true;
+            btndelete.Click += btndelete_Click;
+            // 
+            // dgvstudent
+            // 
+            dgvstudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvstudent.Location = new Point(156, 255);
+            dgvstudent.Name = "dgvstudent";
+            dgvstudent.Size = new Size(423, 150);
+            dgvstudent.TabIndex = 9;
+            dgvstudent.CellContentClick += dgvstudent_CellContentClick;
+            // 
+            // lblgender
+            // 
+            lblgender.AutoSize = true;
+            lblgender.Location = new Point(186, 175);
+            lblgender.Name = "lblgender";
+            lblgender.Size = new Size(45, 15);
+            lblgender.TabIndex = 10;
+            lblgender.Text = "Gender";
             // 
             // cmbgender
             // 
             cmbgender.FormattingEnabled = true;
-            cmbgender.Location = new Point(195, 206);
+            cmbgender.Location = new Point(287, 167);
             cmbgender.Name = "cmbgender";
-            cmbgender.Size = new Size(121, 23);
-            cmbgender.TabIndex = 13;
+            cmbgender.Size = new Size(169, 23);
+            cmbgender.TabIndex = 11;
             // 
             // Studentform
             // 
@@ -173,42 +153,37 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(cmbgender);
-            Controls.Add(lblgennder);
-            Controls.Add(txtage);
+            Controls.Add(lblgender);
+            Controls.Add(dgvstudent);
+            Controls.Add(btndelete);
+            Controls.Add(btnedit);
+            Controls.Add(btnadd);
             Controls.Add(lblage);
+            Controls.Add(txtage);
             Controls.Add(txtaddress);
-            Controls.Add(lbladdress);
-            Controls.Add(dgvstudents);
-            Controls.Add(btndeletestudent);
-            Controls.Add(btneditstudent);
-            Controls.Add(btnaddstudent);
-            Controls.Add(cmbcoures);
-            Controls.Add(lblcoures);
-            Controls.Add(txtname);
-            Controls.Add(lblstudent);
+            Controls.Add(lbladress);
+            Controls.Add(txtstudentname);
+            Controls.Add(lblStudentname);
             Name = "Studentform";
             Text = "Studentform";
-            Load += Studentform_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvstudents).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvstudent).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblstudent;
-        private TextBox txtname;
-        private Label lblcoures;
-        private ComboBox cmbcoures;
-        private Button btnaddstudent;
-        private Button btneditstudent;
-        private Button btndeletestudent;
-        private DataGridView dgvstudents;
-        private Label lbladdress;
+        private Label lblStudentname;
+        private TextBox txtstudentname;
+        private Label lbladress;
         private TextBox txtaddress;
-        private Label lblage;
         private TextBox txtage;
-        private Label lblgennder;
+        private Label lblage;
+        private Button btnadd;
+        private Button btnedit;
+        private Button btndelete;
+        private DataGridView dgvstudent;
+        private Label lblgender;
         private ComboBox cmbgender;
     }
 }

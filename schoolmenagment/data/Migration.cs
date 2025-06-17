@@ -15,8 +15,7 @@ namespace schoolmenagment.data
         {
             using (var conn = datacon.GetConnection())
             {
-                var cmd = conn.CreateCommand();
-                string createTableQueries = @"
+                string createtablequeries = @"
         CREATE TABLE IF NOT EXISTS Users (
             UserID INTEGER PRIMARY KEY AUTOINCREMENT,
             Username TEXT NOT NULL,
@@ -29,27 +28,19 @@ namespace schoolmenagment.data
             CourseName TEXT NOT NULL
         );
 
-        CREATE TABLE IF NOT EXISTS Subjects (
-            SubjectID INTEGER PRIMARY KEY AUTOINCREMENT,
-            SubjectName TEXT NOT NULL,
-            CourseID INTEGER NOT NULL,
-            FOREIGN KEY(CourseID) REFERENCES Courses(CourseID)
-        );
-
         CREATE TABLE IF NOT EXISTS Students (
             StudentID INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT NOT NULL,
             Age INTEGER,
             Address TEXT,
-            CourseID INTEGER NOT NULL,
-            FOREIGN KEY(CourseID) REFERENCES Courses(CourseID)
+            Gender TEXT
         );
 
         CREATE TABLE IF NOT EXISTS Exams (
             ExamID INTEGER PRIMARY KEY AUTOINCREMENT,
             ExamName TEXT NOT NULL,
-            SubjectID INTEGER NOT NULL,
-            FOREIGN KEY(SubjectID) REFERENCES Subjects(SubjectID)
+            CourseId INTEGER NOT NULL,
+            FOREIGN KEY(CourseId) REFERENCES Courses(CourseID)
         );
 
         CREATE TABLE IF NOT EXISTS Marks (
@@ -61,38 +52,34 @@ namespace schoolmenagment.data
             FOREIGN KEY(ExamID) REFERENCES Exams(ExamID)
         );
 
-        CREATE TABLE IF NOT EXISTS Rooms (
-            RoomID INTEGER PRIMARY KEY AUTOINCREMENT,
-            RoomName TEXT NOT NULL,
-            RoomType TEXT NOT NULL
-        );
-
         CREATE TABLE IF NOT EXISTS Timetables (
             TimetableID INTEGER PRIMARY KEY AUTOINCREMENT,
-            SubjectID INTEGER NOT NULL,
             TimeSlot TEXT NOT NULL,
             RoomID INTEGER NOT NULL,
-            FOREIGN KEY(SubjectID) REFERENCES Subjects(SubjectID),
-            FOREIGN KEY(RoomID) REFERENCES Rooms(RoomID)
+            CourseID INTEGER NOT NULL,
+            FOREIGN KEY(RoomID) REFERENCES Rooms(RoomID),
+            FOREIGN KEY(CourseID) REFERENCES Courses(CourseID)
         );
 
         CREATE TABLE IF NOT EXISTS Lectures (
             LectureID INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT NOT NULL,
-            Subject TEXT,
             Qualification TEXT,
             Email TEXT
-        );
-    ";
+        );";
 
-                cmd.CommandText = createTableQueries;
-                cmd.ExecuteNonQuery();
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = createtablequeries;
+                    command.ExecuteNonQuery();
+                }
             }
 
-
         }
+    
     }
-}
+
+ }
     
 
 

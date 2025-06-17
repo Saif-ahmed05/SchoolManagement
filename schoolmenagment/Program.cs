@@ -1,4 +1,5 @@
 using schoolmenagment.data;
+using schoolmenagment.View;
 
 namespace schoolmenagment
 {
@@ -10,11 +11,14 @@ namespace schoolmenagment
         [STAThread]
         static void Main()
         {
+           
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Migration.InitializeDatabase();
-            Application.Run(new Mainform());
+            Application.Run(new Courseform());
+
+
         }
     }
 }

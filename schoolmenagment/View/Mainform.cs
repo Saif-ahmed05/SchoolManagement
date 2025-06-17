@@ -1,3 +1,5 @@
+using schoolmenagment.models;
+
 namespace schoolmenagment
 {
     public partial class Mainform : Form
@@ -19,11 +21,20 @@ namespace schoolmenagment
 
         private void btnstudents_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Studentform studentform = new Studentform();
+         
+
+
             
-                
-            studentform.Show();
+        }
+
+        private void Mainform_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnexams_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

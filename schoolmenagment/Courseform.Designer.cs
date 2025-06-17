@@ -32,13 +32,15 @@
             txtcourse = new TextBox();
             btnadd = new Button();
             dgvcourse = new DataGridView();
+            btnedit = new Button();
+            btndelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvcourse).BeginInit();
             SuspendLayout();
             // 
             // lblCourse
             // 
             lblCourse.AutoSize = true;
-            lblCourse.Location = new Point(105, 33);
+            lblCourse.Location = new Point(125, 102);
             lblCourse.Name = "lblCourse";
             lblCourse.Size = new Size(79, 15);
             lblCourse.TabIndex = 0;
@@ -46,7 +48,7 @@
             // 
             // txtcourse
             // 
-            txtcourse.Location = new Point(217, 25);
+            txtcourse.Location = new Point(256, 102);
             txtcourse.Name = "txtcourse";
             txtcourse.Size = new Size(233, 23);
             txtcourse.TabIndex = 1;
@@ -54,7 +56,7 @@
             // 
             // btnadd
             // 
-            btnadd.Location = new Point(261, 138);
+            btnadd.Location = new Point(109, 182);
             btnadd.Name = "btnadd";
             btnadd.Size = new Size(75, 23);
             btnadd.TabIndex = 2;
@@ -65,17 +67,39 @@
             // dgvcourse
             // 
             dgvcourse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvcourse.Location = new Point(120, 215);
+            dgvcourse.Location = new Point(221, 225);
             dgvcourse.Name = "dgvcourse";
-            dgvcourse.Size = new Size(361, 150);
+            dgvcourse.Size = new Size(131, 161);
             dgvcourse.TabIndex = 5;
             dgvcourse.CellContentClick += dgvcourse_CellContentClick;
+            // 
+            // btnedit
+            // 
+            btnedit.Location = new Point(256, 182);
+            btnedit.Name = "btnedit";
+            btnedit.Size = new Size(75, 23);
+            btnedit.TabIndex = 6;
+            btnedit.Text = "Edit";
+            btnedit.UseVisualStyleBackColor = true;
+            btnedit.Click += btnedit_Click;
+            // 
+            // btndelete
+            // 
+            btndelete.Location = new Point(451, 182);
+            btndelete.Name = "btndelete";
+            btndelete.Size = new Size(75, 23);
+            btndelete.TabIndex = 7;
+            btndelete.Text = "Delete";
+            btndelete.UseVisualStyleBackColor = true;
+            btndelete.Click += btndelete_Click;
             // 
             // Courseform
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btndelete);
+            Controls.Add(btnedit);
             Controls.Add(dgvcourse);
             Controls.Add(btnadd);
             Controls.Add(txtcourse);
@@ -94,5 +118,7 @@
         private TextBox txtcourse;
         private Button btnadd;
         private DataGridView dgvcourse;
+        private Button btnedit;
+        private Button btndelete;
     }
 }
