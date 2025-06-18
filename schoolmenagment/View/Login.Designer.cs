@@ -28,64 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblname = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txtname = new TextBox();
+            txtpassword = new TextBox();
+            btblogin = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lblname
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(90, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(60, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Username";
+            lblname.AutoSize = true;
+            lblname.Location = new Point(146, 150);
+            lblname.Name = "lblname";
+            lblname.Size = new Size(60, 15);
+            lblname.TabIndex = 0;
+            lblname.Text = "Username";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(98, 79);
+            label2.Location = new Point(154, 209);
             label2.Name = "label2";
             label2.Size = new Size(52, 15);
             label2.TabIndex = 1;
             label2.Text = "Pasword";
             // 
-            // textBox1
+            // txtname
             // 
-            textBox1.Location = new Point(216, 28);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(263, 23);
-            textBox1.TabIndex = 2;
+            txtname.Location = new Point(248, 150);
+            txtname.Name = "txtname";
+            txtname.Size = new Size(263, 23);
+            txtname.TabIndex = 2;
             // 
-            // textBox2
+            // txtpassword
             // 
-            textBox2.Location = new Point(216, 71);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(259, 23);
-            textBox2.TabIndex = 3;
+            txtpassword.Location = new Point(248, 201);
+            txtpassword.Name = "txtpassword";
+            txtpassword.Size = new Size(259, 23);
+            txtpassword.TabIndex = 3;
             // 
-            // button1
+            // btblogin
             // 
-            button1.Location = new Point(308, 142);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            btblogin.Location = new Point(326, 298);
+            btblogin.Name = "btblogin";
+            btblogin.Size = new Size(75, 23);
+            btblogin.TabIndex = 4;
+            btblogin.Text = "Login";
+            btblogin.UseVisualStyleBackColor = true;
+            btblogin.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Stencil", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(107, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(598, 25);
+            label1.TabIndex = 5;
+            label1.Text = "Welcome to UnicomTic School Management System";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(btblogin);
+            Controls.Add(txtpassword);
+            Controls.Add(txtname);
+            Controls.Add(label2);
+            Controls.Add(lblname);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
@@ -95,10 +108,11 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblname;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtname;
+        private TextBox txtpassword;
+        private Button btblogin;
+        private Label label1;
     }
 }

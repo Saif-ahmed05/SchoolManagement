@@ -37,9 +37,8 @@
             btnadduser = new Button();
             btnupdateuser = new Button();
             btndeleteuser = new Button();
-            dataGridView1 = new DataGridView();
-            lblmassage = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvuser = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvuser).BeginInit();
             SuspendLayout();
             // 
             // lblusername
@@ -99,6 +98,7 @@
             btnadduser.TabIndex = 6;
             btnadduser.Text = "Add";
             btnadduser.UseVisualStyleBackColor = true;
+            btnadduser.Click += btnadduser_Click;
             // 
             // btnupdateuser
             // 
@@ -108,6 +108,7 @@
             btnupdateuser.TabIndex = 7;
             btnupdateuser.Text = "Update";
             btnupdateuser.UseVisualStyleBackColor = true;
+            btnupdateuser.Click += btnupdateuser_Click;
             // 
             // btndeleteuser
             // 
@@ -117,31 +118,23 @@
             btndeleteuser.TabIndex = 8;
             btndeleteuser.Text = "Delete";
             btndeleteuser.UseVisualStyleBackColor = true;
+            btndeleteuser.Click += btndeleteuser_Click;
             // 
-            // dataGridView1
+            // dgvuser
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(88, 225);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(403, 187);
-            dataGridView1.TabIndex = 9;
-            // 
-            // lblmassage
-            // 
-            lblmassage.AutoSize = true;
-            lblmassage.Location = new Point(645, 346);
-            lblmassage.Name = "lblmassage";
-            lblmassage.Size = new Size(38, 15);
-            lblmassage.TabIndex = 10;
-            lblmassage.Text = "label1";
+            dgvuser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvuser.Location = new Point(88, 225);
+            dgvuser.Name = "dgvuser";
+            dgvuser.Size = new Size(403, 187);
+            dgvuser.TabIndex = 9;
+            dgvuser.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Userform
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lblmassage);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvuser);
             Controls.Add(btndeleteuser);
             Controls.Add(btnupdateuser);
             Controls.Add(btnadduser);
@@ -153,7 +146,7 @@
             Controls.Add(lblusername);
             Name = "Userform";
             Text = "Userform";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvuser).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -169,7 +162,6 @@
         private Button btnadduser;
         private Button btnupdateuser;
         private Button btndeleteuser;
-        private DataGridView dataGridView1;
-        private Label lblmassage;
+        private DataGridView dgvuser;
     }
 }

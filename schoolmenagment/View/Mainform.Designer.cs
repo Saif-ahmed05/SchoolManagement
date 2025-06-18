@@ -36,22 +36,27 @@
             btnexams = new Button();
             btnstudents = new Button();
             btncoures = new Button();
+            btnroom = new Button();
+            btnlecture = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblwelcom
             // 
             lblwelcom.AutoSize = true;
-            lblwelcom.Location = new Point(350, 9);
+            lblwelcom.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblwelcom.Location = new Point(344, 12);
             lblwelcom.Name = "lblwelcom";
-            lblwelcom.Size = new Size(51, 15);
+            lblwelcom.Size = new Size(316, 86);
             lblwelcom.TabIndex = 0;
-            lblwelcom.Text = "Welcom";
+            lblwelcom.Text = "Welcome";
             lblwelcom.Click += label1_Click;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(btnlecture);
+            panel1.Controls.Add(btnroom);
             panel1.Controls.Add(btnlogout);
             panel1.Controls.Add(btntimetable);
             panel1.Controls.Add(btnmarks);
@@ -120,6 +125,24 @@
             btncoures.UseVisualStyleBackColor = true;
             btncoures.Click += button1_Click;
             // 
+            // btnroom
+            // 
+            btnroom.Location = new Point(45, 262);
+            btnroom.Name = "btnroom";
+            btnroom.Size = new Size(75, 23);
+            btnroom.TabIndex = 6;
+            btnroom.Text = "Room";
+            btnroom.UseVisualStyleBackColor = true;
+            // 
+            // btnlecture
+            // 
+            btnlecture.Location = new Point(45, 314);
+            btnlecture.Name = "btnlecture";
+            btnlecture.Size = new Size(75, 23);
+            btnlecture.TabIndex = 7;
+            btnlecture.Text = "Lecture";
+            btnlecture.UseVisualStyleBackColor = true;
+            // 
             // Mainform
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -145,5 +168,7 @@
         private Button btnstudents;
         private Button btnlogout;
         private Button btntimetable;
+        private Button btnlecture;
+        private Button btnroom;
     }
 }

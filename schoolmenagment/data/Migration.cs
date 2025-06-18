@@ -61,17 +61,28 @@ namespace schoolmenagment.data
             FOREIGN KEY(CourseID) REFERENCES Courses(CourseID)
         );
 
-        CREATE TABLE IF NOT EXISTS Lectures (
-            LectureID INTEGER PRIMARY KEY AUTOINCREMENT,
-            Name TEXT NOT NULL,
-            Qualification TEXT,
-            Email TEXT
+       CREATE TABLE IF NOT EXISTS Lectures (
+             LectureID INTEGER PRIMARY KEY AUTOINCREMENT,
+             Name TEXT NOT NULL,
+             Age TEXT NOT NULL,
+             Adress TEXT NOT NULL
+          
         );";
 
                 using (var command = conn.CreateCommand())
                 {
                     command.CommandText = createtablequeries;
                     command.ExecuteNonQuery();
+                }
+                using (var insertCmd = conn.CreateCommand())
+                {
+                    insertCmd.CommandText = @"
+                        INSERT INTO Users (Username, Password, Role)
+                        SELECT 'Admin', 'Admin123', 'Admin'
+                        WHERE NOT EXISTS (
+                        SELECT 1 FROM Users WHERE Username = 'admin'
+            );";
+                    insertCmd.ExecuteNonQuery();
                 }
             }
 

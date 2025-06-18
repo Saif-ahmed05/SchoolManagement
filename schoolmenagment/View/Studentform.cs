@@ -16,6 +16,7 @@ namespace schoolmenagment.View
     {
         private Studentcontroller controller = new Studentcontroller();
         private int selectedStudentId = -1;
+        private string userRole;
 
         public Studentform()
         {
@@ -23,6 +24,8 @@ namespace schoolmenagment.View
             LoadGenderOptions();
             LoadStudents();
         }
+
+
         private void LoadGenderOptions()
         {
             cmbgender.Items.Clear();
@@ -35,6 +38,7 @@ namespace schoolmenagment.View
         {
             dgvstudent.DataSource = controller.GetAllStudents();
         }
+
 
         private void btnadd_Click(object sender, EventArgs e)
         {

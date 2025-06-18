@@ -16,7 +16,7 @@ namespace schoolmenagment
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Migration.InitializeDatabase();
-            Application.Run(new Courseform());
+            Application.Run(new Login());
 
 
         }
