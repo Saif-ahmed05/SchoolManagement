@@ -30,14 +30,14 @@
         {
             lblwelcom = new Label();
             panel1 = new Panel();
+            btnlecture = new Button();
+            btnroom = new Button();
             btnlogout = new Button();
             btntimetable = new Button();
             btnmarks = new Button();
             btnexams = new Button();
             btnstudents = new Button();
             btncoures = new Button();
-            btnroom = new Button();
-            btnlecture = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,6 +68,24 @@
             panel1.Size = new Size(200, 445);
             panel1.TabIndex = 1;
             // 
+            // btnlecture
+            // 
+            btnlecture.Location = new Point(45, 314);
+            btnlecture.Name = "btnlecture";
+            btnlecture.Size = new Size(75, 23);
+            btnlecture.TabIndex = 7;
+            btnlecture.Text = "Lecture";
+            btnlecture.UseVisualStyleBackColor = true;
+            // 
+            // btnroom
+            // 
+            btnroom.Location = new Point(45, 262);
+            btnroom.Name = "btnroom";
+            btnroom.Size = new Size(75, 23);
+            btnroom.TabIndex = 6;
+            btnroom.Text = "Room";
+            btnroom.UseVisualStyleBackColor = true;
+            // 
             // btnlogout
             // 
             btnlogout.Location = new Point(109, 419);
@@ -76,6 +94,7 @@
             btnlogout.TabIndex = 5;
             btnlogout.Text = "Logout";
             btnlogout.UseVisualStyleBackColor = true;
+            btnlogout.Click += btnlogout_Click;
             // 
             // btntimetable
             // 
@@ -124,24 +143,6 @@
             btncoures.Text = "Course";
             btncoures.UseVisualStyleBackColor = true;
             btncoures.Click += button1_Click;
-            // 
-            // btnroom
-            // 
-            btnroom.Location = new Point(45, 262);
-            btnroom.Name = "btnroom";
-            btnroom.Size = new Size(75, 23);
-            btnroom.TabIndex = 6;
-            btnroom.Text = "Room";
-            btnroom.UseVisualStyleBackColor = true;
-            // 
-            // btnlecture
-            // 
-            btnlecture.Location = new Point(45, 314);
-            btnlecture.Name = "btnlecture";
-            btnlecture.Size = new Size(75, 23);
-            btnlecture.TabIndex = 7;
-            btnlecture.Text = "Lecture";
-            btnlecture.UseVisualStyleBackColor = true;
             // 
             // Mainform
             // 

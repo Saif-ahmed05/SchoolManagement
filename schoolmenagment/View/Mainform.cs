@@ -21,10 +21,10 @@ namespace schoolmenagment
 
         private void btnstudents_Click(object sender, EventArgs e)
         {
-         
 
 
-            
+
+
         }
 
         private void Mainform_Load(object sender, EventArgs e)
@@ -34,7 +34,16 @@ namespace schoolmenagment
 
         private void btnexams_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
             
+            this.Close();
+            
+            Login loginForm = new Login();
+            loginForm.Show();
         }
     }
 }
