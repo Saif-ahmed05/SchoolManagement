@@ -80,7 +80,7 @@ namespace schoolmenagment.View
                     return;
                 }
 
-                var exam = new models.Exam
+                var exam = new models.Exams
                 {
                     ExamName = txtexamname.Text.Trim(),
                     CourseId = Convert.ToInt32(cmbcourse.SelectedValue)
@@ -107,7 +107,7 @@ namespace schoolmenagment.View
 
             try
             {
-                var exam = new models.Exam
+                var exam = new models.Exams
                 {
                     ExamId = selectedExamId,
                     ExamName = txtexamname.Text.Trim(),

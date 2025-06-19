@@ -76,6 +76,7 @@
             btnlecture.TabIndex = 7;
             btnlecture.Text = "Lecture";
             btnlecture.UseVisualStyleBackColor = true;
+            btnlecture.Click += btnlecture_Click;
             // 
             // btnroom
             // 
@@ -85,6 +86,7 @@
             btnroom.TabIndex = 6;
             btnroom.Text = "Room";
             btnroom.UseVisualStyleBackColor = true;
+            btnroom.Click += btnroom_Click;
             // 
             // btnlogout
             // 
@@ -104,6 +106,7 @@
             btntimetable.TabIndex = 4;
             btntimetable.Text = "Time Table";
             btntimetable.UseVisualStyleBackColor = true;
+            btntimetable.Click += btntimetable_Click;
             // 
             // btnmarks
             // 
@@ -113,6 +116,7 @@
             btnmarks.TabIndex = 3;
             btnmarks.Text = "Marks";
             btnmarks.UseVisualStyleBackColor = true;
+            btnmarks.Click += btnmarks_Click;
             // 
             // btnexams
             // 

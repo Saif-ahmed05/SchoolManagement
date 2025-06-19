@@ -11,7 +11,7 @@ namespace schoolmenagment.controller
     internal class ExamController
     {
         // Add Exam
-        public void AddExam(Exam exam)
+        public void AddExam(Exams exam)
         {
             using (var conn = datacon.GetConnection())
             {
@@ -26,9 +26,9 @@ namespace schoolmenagment.controller
         }
 
         // Get all Exams
-        public List<Exam> GetAllExams()
+        public List<Exams> GetAllExams()
         {
-            var exams = new List<Exam>();
+            var exams = new List<Exams>();
             using (var conn = datacon.GetConnection())
             {
                 var cmd = conn.CreateCommand();
@@ -38,7 +38,7 @@ namespace schoolmenagment.controller
                 {
                     while (reader.Read())
                     {
-                        exams.Add(new Exam
+                        exams.Add(new Exams
                         {
                             ExamId = Convert.ToInt32(reader["ExamID"]),
                             ExamName = reader["ExamName"]?.ToString() ?? string.Empty,
@@ -51,7 +51,7 @@ namespace schoolmenagment.controller
         }
 
         // Update Exam
-        public void UpdateExam(Exam exam)
+        public void UpdateExam(Exams exam)
         {
             using (var conn = datacon.GetConnection())
             {
@@ -80,7 +80,7 @@ namespace schoolmenagment.controller
         }
 
         // Get single Exam by ID
-        public Exam? GetExamById(int examId)
+        public Exams? GetExamById(int examId)
         {
             using (var conn = datacon.GetConnection())
             {
@@ -92,7 +92,7 @@ namespace schoolmenagment.controller
                 {
                     if (reader.Read())
                     {
-                        return new Exam
+                        return new Exams
                         {
                             ExamId = Convert.ToInt32(reader["ExamID"]),
                             ExamName = reader["ExamName"]?.ToString() ?? string.Empty,
