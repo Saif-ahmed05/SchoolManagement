@@ -27,34 +27,21 @@ namespace schoolmenagment.View
         }
         private void LoadCourseComboBox()
         {
-            /*using (var conn = data.datacon.GetConnection())
-            {
-                var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT CourseId, CourseName FROM Course";
-
-                var dt = new DataTable();
-                using (var da = new System.Data.SQLite.SQLiteDataAdapter(cmd))
-                
-                cmbsubject.DisplayMember = "CourseName";
-                cmbsubject.ValueMember = "CourseId";
-                cmbsubject.DataSource = dt;
-            */
-         }
-        
-        private void LoadSubjectComboBox()
-        {
             try
             {
-                var subjects = Coursecontroller.GetAll();
+                var courses = Coursecontroller.GetAll(); // This must return List<Course>
+                cmbcourse.DataSource = courses;
                 cmbcourse.DisplayMember = "CourseName";
                 cmbcourse.ValueMember = "CourseId";
-                cmbcourse.DataSource = subjects;
+                cmbcourse.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading subjects: " + ex.Message);
+                MessageBox.Show("Error loading courses: " + ex.Message);
             }
-        }
+        }   
+        
+       
         private void LoadExamData()
         {
             dataGridView1.DataSource = null;
@@ -73,7 +60,7 @@ namespace schoolmenagment.View
 
         private void Exam_Load(object sender, EventArgs e)
         {
-            LoadSubjectComboBox();
+          
             LoadExamData();
         }
 
@@ -87,7 +74,7 @@ namespace schoolmenagment.View
                     return;
                 }
 
-                if (cmbsubject.SelectedValue == null)
+                if (cmbcourse.SelectedValue == null)
                 {
                     MessageBox.Show("Please select a course.");
                     return;
@@ -96,7 +83,7 @@ namespace schoolmenagment.View
                 var exam = new models.Exam
                 {
                     ExamName = txtexamname.Text.Trim(),
-                    CourseId = cmbsubject.SelectedValue.ToString() // Fix: Convert 'int' to 'string'  
+                    CourseId = Convert.ToInt32(cmbcourse.SelectedValue)
                 };
 
                 examController.AddExam(exam);
@@ -124,7 +111,7 @@ namespace schoolmenagment.View
                 {
                     ExamId = selectedExamId,
                     ExamName = txtexamname.Text.Trim(),
-                    CourseId = cmbcourse.SelectedValue.ToString() // Fix: Convert 'int' to 'string'  
+                    CourseId = Convert.ToInt32(cmbcourse.SelectedValue)
                 };
 
                 examController.UpdateExam(exam);
@@ -170,13 +157,13 @@ namespace schoolmenagment.View
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 selectedExamId = Convert.ToInt32(row.Cells["ExamId"].Value);
                 txtexamname.Text = row.Cells["ExamName"].Value.ToString();
-                cmbsubject.SelectedValue = row.Cells["CourseId"].Value.ToString(); // Fix: Convert 'int' to 'string'  
+                cmbcourse.SelectedValue = Convert.ToInt32(row.Cells["CourseId"].Value); // Fix: Convert 'int' to 'string'  
             }
         }
         private void ClearInputs()
         {
             txtexamname.Clear();
-            cmbsubject.SelectedIndex = 0;
+            cmbcourse.SelectedIndex = 0;
             selectedExamId = -1;
         }
     }

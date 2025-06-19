@@ -42,7 +42,7 @@ namespace schoolmenagment.controller
                         {
                             ExamId = Convert.ToInt32(reader["ExamID"]),
                             ExamName = reader["ExamName"]?.ToString() ?? string.Empty,
-                            CourseId = reader["CourseId"]?.ToString() ?? string.Empty
+                            CourseId = Convert.ToInt32(reader["CourseId"])
                         });
                     }
                 }
@@ -96,7 +96,7 @@ namespace schoolmenagment.controller
                         {
                             ExamId = Convert.ToInt32(reader["ExamID"]),
                             ExamName = reader["ExamName"]?.ToString() ?? string.Empty,
-                            CourseId = reader["CourseId"]?.ToString() ?? string.Empty
+                            CourseId = Convert.ToInt32(reader["CourseId"])
                         };
                     }
                 }

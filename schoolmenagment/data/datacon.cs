@@ -10,7 +10,7 @@ namespace schoolmenagment.data
     internal static class datacon
     {
      
-        private static string ConnectionString = "Data Source=SchoolDB.db; version=3;";
+        private static string ConnectionString = "Data Source=unicomticDB.db; version=3;";
 
         public static SQLiteConnection GetConnection()
         {

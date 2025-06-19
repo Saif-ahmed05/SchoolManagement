@@ -10,7 +10,7 @@ namespace schoolmenagment.models
     {
         public int ExamId { get; set; }
         public string ExamName { get; set; }
-        public string CourseId { get; set; }
+        public int CourseId { get; set; }
 
          
     }
