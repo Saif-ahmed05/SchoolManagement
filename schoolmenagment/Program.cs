@@ -12,13 +12,13 @@ namespace schoolmenagment
         static void Main()
         {
 
-            Migration.InitializeDatabase();
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Migration.InitializeDatabase();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
+            Application.Run(new Login());
             
-            Application.Run(new Userform());
 
 
         }

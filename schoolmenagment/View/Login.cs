@@ -42,7 +42,7 @@ namespace schoolmenagment
 
             if (user != null)
             {
-                MessageBox.Show($"Welcome {user.UserName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show($"Welcome {user.UserName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Hide this form and show the main form
                 this.Hide();
