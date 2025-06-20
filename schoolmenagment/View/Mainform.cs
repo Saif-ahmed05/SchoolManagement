@@ -81,5 +81,12 @@ namespace schoolmenagment
             Lectureform form = new Lectureform();
             form.Show();
         }
+
+        private void btnuser_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Userform form = new Userform();
+            form.Show();
+        }
     }
 }

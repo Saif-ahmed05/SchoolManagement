@@ -38,6 +38,7 @@
             btnexams = new Button();
             btnstudents = new Button();
             btncoures = new Button();
+            btnuser = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(btnuser);
             panel1.Controls.Add(btnlecture);
             panel1.Controls.Add(btnroom);
             panel1.Controls.Add(btnlogout);
@@ -148,6 +150,16 @@
             btncoures.UseVisualStyleBackColor = true;
             btncoures.Click += button1_Click;
             // 
+            // btnuser
+            // 
+            btnuser.Location = new Point(45, 370);
+            btnuser.Name = "btnuser";
+            btnuser.Size = new Size(75, 23);
+            btnuser.TabIndex = 8;
+            btnuser.Text = "user";
+            btnuser.UseVisualStyleBackColor = true;
+            btnuser.Click += btnuser_Click;
+            // 
             // Mainform
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -175,5 +187,6 @@
         private Button btntimetable;
         private Button btnlecture;
         private Button btnroom;
+        private Button btnuser;
     }
 }
