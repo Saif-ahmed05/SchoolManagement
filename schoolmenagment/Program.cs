@@ -17,7 +17,7 @@ namespace schoolmenagment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            Application.Run(new Lectureform());
             
 
 

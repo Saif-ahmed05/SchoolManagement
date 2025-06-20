@@ -152,7 +152,7 @@ namespace schoolmenagment.data
                     LectureID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT NOT NULL,
                     Age TEXT NOT NULL,
-                    Address TEXT NOT NULL
+                    Adress TEXT NOT NULL
                 );
                 ";
 
