@@ -136,7 +136,8 @@ namespace schoolmenagment.data
 
                 CREATE TABLE IF NOT EXISTS Rooms (
                     RoomID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    RoomName TEXT NOT NULL
+                    RoomName TEXT NOT NULL,
+                    RoomType TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS Timetables (
