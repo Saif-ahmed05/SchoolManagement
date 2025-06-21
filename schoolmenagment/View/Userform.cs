@@ -27,7 +27,7 @@ namespace schoolmenagment.View
         {
             cmbrole.Items.Clear();
             cmbrole.Items.Add("Admin");
-            cmbrole.Items.Add("Teacher");
+            cmbrole.Items.Add("Lecture");
             cmbrole.Items.Add("Student");
             cmbrole.SelectedIndex = 0; // default selection
         }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace schoolmenagment
 {
@@ -29,25 +30,26 @@ namespace schoolmenagment
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Get username and password from textboxes
             string username = txtname.Text.Trim();
             string password = txtpassword.Text.Trim();
 
+            // Check if empty
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
 
+            // Authenticate user via controller
             User user = loginController.Authenticate(username, password);
 
             if (user != null)
             {
-                //MessageBox.Show($"Welcome {user.UserName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Hide this form and show the main form
+                // Hide login form and open main form with user info
                 this.Hide();
-                Mainform MainForm = new Mainform(); // or pass user info if needed
-                MainForm.Show();
+                Mainform mainForm = new Mainform(user.Role); // Pass User object to Mainform
+                mainForm.Show();
             }
             else
             {

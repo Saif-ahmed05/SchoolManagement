@@ -22,6 +22,25 @@ namespace schoolmenagment.View
         {
             InitializeComponent();
             LoadGenderOptions();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lbladress.Visible = false;
+                lblage.Visible = false;
+                lblgender.Visible = false;
+                lblStudentname.Visible = false;
+
+                txtaddress.Visible = false;
+                txtage  .Visible = false;
+                txtstudentname .Visible = false;
+                cmbgender .Visible = false;
+
+
+
+            }
             LoadStudents();
         }
 

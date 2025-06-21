@@ -26,6 +26,22 @@ namespace schoolmenagment.View
         {
             LoadCourses();
             LoadRooms();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lblcourse.Visible = false;
+                lblroom.Visible = false;
+                lbltimeslot.Visible = false;
+
+                txttimeslot.Visible = false;
+                cmbcourse.Visible = false;
+                cmbroom.Visible = false;
+                
+
+            }
             LoadTimetables();
         }
         private void LoadCourses()

@@ -22,6 +22,22 @@ namespace schoolmenagment.View
         public Markform()
         {
             InitializeComponent();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lblexam.Visible = false;
+                lblscore.Visible = false;
+                lblstudentid.Visible = false;
+
+                txtscore.Visible = false;
+                txtstudentid.Visible = false;
+                cmbexam.Visible = false;
+
+
+            }
 
             markController = new Markcontroller();
             examController = new ExamController();

@@ -20,6 +20,21 @@ namespace schoolmenagment.View
         public Lectureform()
         {
             InitializeComponent();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lbladress.Visible = false;
+                lblage.Visible = false;
+                lblname.Visible = false;
+
+                txtadress.Visible = false;
+                txtage.Visible = false;
+                txtname.Visible = false;
+
+            }
 
             LoadLectures();
         }

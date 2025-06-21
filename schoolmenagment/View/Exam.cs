@@ -24,6 +24,19 @@ namespace schoolmenagment.View
             InitializeComponent();
             LoadCourseComboBox();
             LoadExamData();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lblcourse.Visible = false;
+                lblexamname.Visible = false;
+                
+                txtexamname.Visible = false;
+                cmbcourse.Visible = false;
+
+            }
         }
         private void LoadCourseComboBox()
         {

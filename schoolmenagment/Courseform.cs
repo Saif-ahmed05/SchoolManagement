@@ -23,6 +23,16 @@ namespace schoolmenagment
         public Courseform()
         {
             InitializeComponent();
+            if (finder.usertype != "Admin")
+            {
+                btnadd.Visible = false;
+                btndelete.Visible = false;
+                btnedit.Visible = false;
+
+                lblCourse.Visible = false;
+                txtcourse.Visible = false;
+                
+            }
             
             LoadCourses();
         }

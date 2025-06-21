@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using schoolmenagment.models;
 using schoolmenagment.View;
 
@@ -5,9 +6,17 @@ namespace schoolmenagment
 {
     public partial class Mainform : Form
     {
-        public Mainform()
+        private string userRole;
+        public Mainform(string role)
         {
             InitializeComponent();
+            userRole = role;
+            this.Load += Mainform_Load;
+
+
+
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +44,9 @@ namespace schoolmenagment
         private void Mainform_Load(object sender, EventArgs e)
         {
 
+            ApplyRolePermissions();
         }
+
 
         private void btnexams_Click(object sender, EventArgs e)
         {
@@ -56,6 +67,31 @@ namespace schoolmenagment
                 loginForm.Show();
             }
         }
+        private void ApplyRolePermissions()
+        {
+            if (userRole == "Admin")
+            {
+                
+            }
+            else if (userRole == "Student")
+            {
+                btnlecture.Visible = false;
+                btnuser.Visible = false;
+            }
+            else if (userRole == "Lecture")
+            {
+                btnuser.Visible = false;
+            }
+            else
+            {
+                foreach (Control c in this.Controls)
+                {
+                    if (c is Button btn)
+                        btn.Visible = false;
+                }
+            }
+        }
+
 
         private void btnmarks_Click(object sender, EventArgs e)
         {
