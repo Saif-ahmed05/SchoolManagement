@@ -32,8 +32,8 @@ namespace schoolmenagment.View
         {
             var courses = Coursecontroller.GetAll();
             cmbcourse.DataSource = courses;
-            cmbcourse.DisplayMember = "Name";
-            cmbcourse.ValueMember = "Id";
+            cmbcourse.DisplayMember = "CourseName";
+            cmbcourse.ValueMember = "CourseId";
         }
         private void LoadRooms()
         {
