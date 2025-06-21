@@ -46,6 +46,11 @@ namespace schoolmenagment
 
             if (user != null)
             {
+                finder.usertype = user.Role;
+
+                // ✅ Debug
+                MessageBox.Show($"Logged in Role: {finder.usertype}");
+
                 // Hide login form and open main form with user info
                 this.Hide();
                 Mainform mainForm = new Mainform(user.Role); // Pass User object to Mainform
