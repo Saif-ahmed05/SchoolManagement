@@ -23,7 +23,7 @@ namespace schoolmenagment
         public Courseform()
         {
             InitializeComponent();
-            this.Load += Courseform_Load;
+           
             if (finder.usertype != "Admin")
             {
                 btnadd.Visible = false;
